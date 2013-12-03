@@ -1,0 +1,77 @@
+\documentclass[a4paper, espaco=emeio, ruledheader, twoside, openright, final, normalfigtabnum, tocpage=plain]{ifsc}
+
+  \usepackage{additionals}
+
+  \usepackage[colorlinks=true, hidelinks, hyperindex, breaklinks]{hyperref}
+  \usepackage{url}
+  \usepackage{breakurl}
+
+%  \numberwithin{table}{section}
+%  \numberwithin{figure}{section}
+
+  \hypersetup
+  {
+    pdftitle = {Titulo da Tese},
+    pdfauthor = {Nome do autor},
+    pdfsubject = {Assunto},
+    pdfkeywords = {palavras, chave},
+    pdfcreator = {LaTeX},
+    linkbordercolor = {1 1 1},
+    pdftoolbar = true,
+    pdfmenubar = true,
+    colorlinks = false,
+    citecolor=black,
+    linkcolor=black,
+    urlcolor=black,
+  }
+
+  \makeindex
+  
+  \def\@cite#1#2{({#1\if@tempswa:#2\fi})}
+  
+  \setlength{\footnotemargin}{0in}
+
+
+  % Pasta onde voce vai deixar suas imagens
+  \graphicspath{{figuras/}}
+
+ % Caso seja a versão corrigida, descomente abaixo.
+ % \renewcommand{\IFSCversao}{Vers\~ao Corrigida\\ (versão original disponível na Unidade que aloja o Programa)}
+
+  \usepackage{tikz}
+  
+  % Neste arquivo você pode inserir suas definições (veja exemplo)
+  \include{arquivos_tex/definicoes}
+
+  \begin{document}
+
+
+    \input arquivos_tex/titlepage.tex
+
+    \input arquivos_tex/aknowledgements.tex
+      
+    \input arquivos_tex/resumo.tex
+
+    \listoffigures
+    \newpage
+
+    \listoftables
+    \newpage
+
+    \tableofcontents
+    \newpage
+
+    \input arquivos_tex/intro.tex
+    
+    \input arquivos_tex/resultados.tex
+    
+    \input arquivos_tex/conclusion.tex
+    
+    \bibliographystyle{ifsc_abnt}
+    \bibliography{referencias.bib.tex}
+    
+    \appendix
+    
+    \input arquivos_tex/appendix.tex
+  
+  \end{document}

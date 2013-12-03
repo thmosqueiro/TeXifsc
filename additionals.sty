@@ -1,0 +1,207 @@
+
+  \usepackage{lettrine}
+  \usepackage{amsmath, amssymb, amsfonts, bbm}
+  \usepackage{makeidx}
+%   \usepackage[ansinew]{inputenc}
+   \usepackage[T1]{fontenc}
+   \usepackage[utf8]{inputenc}
+  \usepackage[brazil]{babel}
+%   \usepackage[latin1]{inputenc}
+  \usepackage[usenames,dvipsnames]{pstricks}
+  \usepackage[format=hang,labelfont=bf,labelsep=endash,small]{caption}
+  \usepackage{subfigure,subeqnarray}
+  \usepackage{epsfig}
+  \usepackage[hang,splitrule]{footmisc}
+  \usepackage{axodraw4j}
+  \usepackage{pst-grad} % For gradients
+  \usepackage{pst-plot} % For axes
+  \usepackage{latexsym}
+  \usepackage{tabularx,colortbl}
+  \usepackage{enumitem}
+  \usepackage[numbers, comma, round, sort&compress]{natbib}
+  \usepackage{listings}
+  \usepackage{array}
+  \usepackage[top=3cm, bottom=2cm, left=3cm, right=2cm]{geometry}
+
+
+
+%--- Theorem like environments ----
+  \newtheorem{theorem}{Teorema}
+  \newtheorem{corolary}{Corol\'ario}
+  \newtheorem{prop}{Proposi\c{c}\ão}
+  \newtheorem{definition}{Defini\c{c}\~ao}
+  \newtheorem{example}{Exemplo}
+  \newtheorem{exercise}{Exerc\'icio}
+  \newtheorem{lemma}{Lemma}
+  \newtheorem{hip}{Hip\'otese}
+
+
+
+%--- Coisas da ABNT ---
+  \renewcommand{\thefootnote}{\fnsymbol{footnote}}
+  \newcommand{\ABNTbibliographyname}{REFER\^ENCIAS}
+  \renewcommand{\ABNTtoctitulo}{SUM\'ARIO}
+  \renewcommand{\ABNTtottitulo}{LISTA DE TABELAS}
+  \renewcommand{\ABNTtoftitulo}{LISTA DE FIGURAS}
+  \renewcommand{\ABNTagradecimentostitulo}{AGRADECIMENTOS}
+
+%--- Definindo algumas frescuras.
+  \numberwithin{equation}{section}
+  \numberwithin{figure}{chapter}
+  \numberwithin{table}{chapter}
+
+% acertando o rodap´e com a margem!!
+  \addtolength{\footskip}{0.5cm}
+  \setlength{\footnotemargin}{0.3cm}
+  \setlength{\footnotesep}{0.4cm}
+
+% Para acessar comandos internos do latex, \makeatletter!!
+\makeatletter
+
+%   \renewcommand{\@biblabel}[1]{#1\hspace{5mm}}%..........coloca nas referencias apenas o n´umero sem ponto. (#1.) adiciona ponto (pode ser tirado)
+% 
+%    \renewcommand{\@openbib@code}{\@openbib@codeBACKUP}%...alinha numero da referencia ao numero da pagina
+% %\renewcommand{\thebibliography}[1]{\thebibliographyBkUp{99}\setlength{\itemsep}{\baselineskip}}
+% 
+%   \let\thebibliographyOLD\thebibliography
+%   \renewcommand{\thebibliography}[1]{\thebibliographyOLD{#1}\setlength{\itemsep}{\baselineskip}}
+
+% acertando o rodap´e com a margem!!
+  \let\splitfootnoterule=\pagefootnoterule
+
+% Corrigindo um pouco o estilo do thebibliography
+  \renewcommand\@biblabel[1]{#1} % o argumento ´e a forma como a etiqueta deverah aparecer!
+
+  \newcommand{\refnameintoc}{REFER\^ENCIAS} % como deveria aparecer na tabela de conteudo? Pode usar ``renewcommand'' pra redefinir esta opç~ao..
+
+  \renewenvironment{thebibliography}[1]
+  {
+	%\footnote{Utilizamos o sistema num´erico, ordenado por .}%
+    \if@openright\cleardoublepage\else\clearpage\fi%
+    \thispagestyle{\chaptertitlepagestyle}%
+    \global\@topnum\z@%
+    \@afterindentfalse%
+    \@mkboth{\ABNTbibliographyname}{\ABNTbibliographyname}% end \chapter*{\refname...}
+    \ifthenelse{\boolean{ABNTincludeintoc}}%
+      {\ABNTaddcontentsline{toc}{chapter}{\refnameintoc}}%
+      {}%
+    \if@twocolumn%
+      \@topnewpage[\@makeschapterhead{\ABNTbibliographyname}]%
+    \else%
+      \@makeschapterhead{\ABNTbibliographyname}%
+      \@afterheading%
+    \fi%
+
+    \begin{singlespace}
+    \@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}%
+    \begin{list}
+    {
+      \@biblabel{\@arabic\c@enumiv}
+    }
+    {
+%       \settowidth\labelwidth{\@biblabel{#1}}%
+      \setlength\labelwidth{-0.3cm}
+      \setlength\labelsep{0.3cm}
+      \leftmargin\labelwidth%
+      \advance\leftmargin\labelsep%
+      \setlength\itemsep{1\baselineskip plus2pt minus1pt} % adjust as required
+      \@openbib@code
+      \usecounter{enumiv}
+      \let\p@enumiv\@empty
+      \renewcommand\theenumiv{\@arabic\c@enumiv}
+    }%
+    \sloppy
+    \clubpenalty4000
+    \@clubpenalty \clubpenalty
+    \widowpenalty4000%
+    \sfcode`\.\@m
+  }
+  {
+    \def\@noitemerr
+     {\@latex@warning{Empty `thebibliography' environment}}%
+    \end{list}
+    \end{singlespace}
+  }
+
+
+% TAMBEM MUITO BOM
+%    \renewenvironment{thebibliography}[1]
+%       {\section*{\refname}%
+%        \@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}%
+%        \list{\@biblabel{\@arabic\c@enumiv}}%
+%             {\settowidth\labelwidth{\@biblabel{#1}}%
+%              \leftmargin\labelwidth
+%              \advance\leftmargin\labelsep
+%              \setlength\itemsep{1\baselineskip plus2pt minus1pt} % adjust as required
+%              \@openbib@code
+%              \usecounter{enumiv}%
+%              \let\p@enumiv\@empty
+%              \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+%        \sloppy
+%        \clubpenalty4000
+%        \@clubpenalty \clubpenalty
+%        \widowpenalty4000%
+%        \sfcode`\.\@m}
+%       {\def\@noitemerr
+%         {\@latex@warning{Empty `thebibliography' environment}}%
+%        \endlist}
+
+\makeatother
+
+\renewcommand{\familydefault}{\sfdefault}
+
+% Thanks to Steve at FreeNode #latex chanel! This changes subeqnarray label font to the one I choose with familydefault.
+% Important: it requires etoolbox.sty, that can be downloaded at CTAN repository.
+% http://www.ctan.org/tex-archive/macros/latex/contrib/etoolbox/
+\usepackage{etoolbox}\usepackage{subeqnarray}\makeatletter\patchcmd\@subeqnnum\rmfamily\normalfont{}{}
+
+
+\newenvironment{epigrafe}
+{
+	\begin{flushright}\begin{minipage}{7cm}
+	  \begin{flushright}
+}
+{
+\end{flushright}\end{minipage}\end{flushright}
+}
+
+\newcommand{\autorepigrafe}[1]{{\small \sffamily #1} \\ \rule[1cm]{5.4cm}{0.5ex}}
+
+
+\newenvironment{citacaotese}
+{
+	\setlength{\parindent}{0cm}
+}
+{
+	
+}
+
+
+\newenvironment{keywords}
+{
+	\vspace{1.5cm} 
+	\setlength{\parindent}{0cm}
+	\textsc{Keywords}:
+}
+{
+	
+}
+
+\newenvironment{palavraschave}
+{
+	\vspace{1.5cm} 
+	\setlength{\parindent}{0cm}
+	\textsc{Palavras-chave}:
+}
+{
+	
+}
+
+\renewenvironment{resumo}
+{
+	\vspace{1cm}
+	\setlength{\parindent}{0cm}
+}
+{
+	
+}

@@ -1,0 +1,7 @@
+#!/bin/sh
+
+rm dissertacao.aux
+latex dissertacao.tex
+bibtex dissertacao.aux
+latex dissertacao.tex
+bibtex dissertacao.aux

@@ -1,0 +1,10 @@
+#!/bin/sh
+
+#latex dissertacao.tex
+#dvips dissertacao.dvi
+#ps2pdf -sPAPERSIZE=a4 dissertacao.ps 
+
+pdflatex dissertacao.tex
+
+rm -f *.log *.lof *.idx *.aux *.toc *.out *.dvi *.ps *.lot *.bbl *~ ; cd arquivos_tex && rm -f *.aux 
+
