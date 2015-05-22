@@ -13,7 +13,7 @@ dizer que usou. Isso eh sempre usado para averiguar a real necessidade
 de manutencao deste pacote.
 
 
-** Atenção -- LEIA!!**
+**Atenção -- LEIA!!**
 
 Atualmente, no entanto, este pacote está passando por mudanças
 drásticas, dadas as extensas modificações das regras exigidas pela
