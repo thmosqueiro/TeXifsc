@@ -39,3 +39,11 @@
 }
 
 
+
+
+%%%%%%%%%%%%%%    FONTE DE FIGURAS    %%%%%%%%%%%%%%%
+
+\newcommand{\IFSCfontdefault}{Elaborada pelo autor.}
+\newcommand{\IFSCfontetag}{{Fonte:}}
+\newcommand{\fonte}[1]{\newline\IFSCfontetag
+  ~\ifthenelse{\equal{#1}{}}{\IFSCfontdefault}{#1}}

@@ -23,7 +23,6 @@
 \RequirePackage{calc}      % standard package for length and number easy calculations
 \RequirePackage[paper=a4paper]{geometry}  % to fix margins, paper size, etc
 
-
 \RequirePackage{tocloft}    % managing table of contents
 \RequirePackage{setspace}
 \RequirePackage{fancyhdr}  % managing the header
@@ -135,6 +134,7 @@
 \geometry{paper=a4paper, twoside, top=3cm, left=3cm, right=2cm, bottom=2cm}
 \RequirePackage{ifsc}
 
+\RequirePackage[labelfont=bf, format=hang]{caption}
 
 
 %%%%%%%%%%%%%       HEADER           %%%%%%%%%%%%

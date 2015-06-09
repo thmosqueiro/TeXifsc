@@ -1,14 +1,38 @@
 \documentclass{ifsc}
 
+% Pasta onde estao as figuras (nao eh necessario!)
+\graphicspath{{figuras/}}
 
 
 \begin{document}
+
+
+%%%%%%
+%% Pre-Textual
 
 \input Titulo.tex
 
 \input Agradecimentos.tex
 
 \input Resumo.tex
+
+
+%%%%%%
+%% Tabelas de conteudo - Indice, lista de figuras, etc.
+%% A ordem jah segue as normas da biblioteca.
+
+\listoffigures
+\newpage
+
+\listoftables
+\newpage
+
+\tableofcontents
+\newpage
+
+
+%%%%%
+%% Conteudo
 
 \input Capitulo1_Intro.tex
 
