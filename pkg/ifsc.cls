@@ -21,10 +21,7 @@
 
 \RequirePackage{ifthen}    % conditions in LaTeX
 \RequirePackage{calc}      % standard package for length and number easy calculations
-\RequirePackage[
-  paper=a4paper, twoside,
-  top=3cm, left=3cm, right=2cm, bottom=2cm
-]{geometry}  % to fix margins, paper size, etc
+\RequirePackage[paper=a4paper]{geometry}  % to fix margins, paper size, etc
 
 
 \RequirePackage{tocloft}    % managing table of contents
@@ -127,7 +124,7 @@
 
 \LoadClass[12pt]{report}
 
-
+\geometry{paper=a4paper, twoside, top=3cm, left=3cm, right=2cm, bottom=2cm}
 \RequirePackage{ifsc}
 
 
