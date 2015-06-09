@@ -23,7 +23,6 @@
 \RequirePackage{calc}      % standard package for length and number easy calculations
 \RequirePackage[paper=a4paper]{geometry}  % to fix margins, paper size, etc
 
-\RequirePackage{tocloft}    % managing table of contents
 \RequirePackage{setspace}
 \RequirePackage{fancyhdr}  % managing the header
 \RequirePackage[latin1]{inputenc}  % Acentos em portugues
@@ -144,15 +143,42 @@
 
 
 
+%%%%%%%%%    SETTING TOCLOFT VARIABLES      %%%%%%%%%
 
 
+\RequirePackage{tocloft}    % managing table of contents
+
+%% Setting what is displayed in the TOC
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{2}
+
+%% Setting indents
+\cftsetindents{section}{0.cm}{0.9cm}
+\cftsetindents{subsection}{0.cm}{0.9cm}
+\cftsetindents{subsubsection}{0.cm}{0.9cm}
+
+%% Item separation
+\renewcommand\cftchapafterpnum{\vskip7pt}
+\renewcommand\cftsecafterpnum{\vskip7pt}
+
+%% All fonts
+\renewcommand{\cftchapfont}{\large\normalfont}
+\renewcommand{\cftchappagefont}{\normalfont}
+\renewcommand{\cftsecfont}{\large\normalfont}
+\renewcommand{\cftsecpagefont}{\normalfont}
+\renewcommand{\cftsubsecfont}{\large\normalfont}
+\renewcommand{\cftsubsecpagefont}{\normalfont}
+\renewcommand{\cftsubsubsecfont}{\large\normalfont}
+\renewcommand{\cftsubsubsecpagefont}{\normalfont}
 
 
-
-
-
-
-
+%% Adding the word Capitulo before chapter.
+\newcommand{\IFSCchapname}{Cap\'itulo}
+\renewcommand{\cftchappresnum}{\IFSCchapname ~}
+\newcommand{\IFSCchapsep}{}
+\renewcommand{\cftchapaftersnum}{\IFSCchapsep}
+\renewcommand{\cftchapnumwidth}{2.3cm}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
 
 
 
