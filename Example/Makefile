@@ -69,4 +69,4 @@ cleanoutput:
 	rm -v -f *~ *.aux *.toc *.log *.out $(f).pdf $(f).ps $(f).dvi
 
 clean:
-	rm -v -f *~ *.aux *.toc *.log *.out
+	rm -v -f *~ *.aux *.toc *.log *.out *.lof *.lot
