@@ -104,6 +104,14 @@
 
 
 
+\newboolean{ABNTinpretext}
+\setboolean{ABNTinpretext}{true}
+
+\newboolean{ABNTaftertoc}
+\setboolean{ABNTaftertoc}{false}
+
+
+
 %%%%%%%%%%%%%      NAME DEFINITIONS       %%%%%%%%%%%%
 
 \providecommand{\ABNTtoctitulo}{Sum\'ario}
@@ -149,6 +157,30 @@
 
 
 %%%%%%%%%%%%%       Environments           %%%%%%%%%%%%
+
+
+\newcommand{\chaptertype}{}%
+\renewcommand\chapter%
+    {%
+      \cleardoublepage
+      \thispagestyle{\chaptertitlepagestyle}
+      \ifthenelse{\boolean{ABNTinpretext}}%
+       {%
+        \ifthenelse{\boolean{ABNTaftertoc}}%
+          {% change to textual part
+           \setboolean{ABNTinpretext}{false}%
+           \ABNTBeginOfTextualPart%
+          }%
+          {}%
+       }% 
+       {}%
+     \global\@topnum\z@%
+     \@afterindentfalse%
+%     \ABNTsecdef\@chapter\@schapter%
+    \secdef\@chapter\@schapter%
+    }
+
+
 
 
 \input ifsc_pretextual.tex
