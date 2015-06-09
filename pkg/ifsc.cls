@@ -128,12 +128,16 @@
 
 
 
+
+%%%%%%%%          LOADING THE BASE CLASS           %%%%%%%%%
+
 \LoadClass[12pt]{report}
 
 \geometry{paper=a4paper, twoside, top=3cm, left=3cm, right=2cm, bottom=2cm}
 \RequirePackage{ifsc}
 
 \RequirePackage[labelfont=bf, format=hang]{caption}
+
 
 
 %%%%%%%%%%%%%       HEADER           %%%%%%%%%%%%
@@ -147,6 +151,8 @@
 
 
 \RequirePackage{tocloft}    % managing table of contents
+
+%%%% Table of contents
 
 %% Setting what is displayed in the TOC
 \setcounter{tocdepth}{2}
@@ -181,8 +187,38 @@
 \renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
 
 
+%%%% Figures
+\cftsetindents{figure}{0.cm}{0.cm}
 
-%%%%%%%%%%%%%       Environments           %%%%%%%%%%%%
+%% Adding the word Figure before chapter.
+\renewcommand{\cftfigfont}{\normalfont}
+\renewcommand{\cftfigpagefont}{\normalfont}
+\newcommand{\IFSCfigname}{\bf Figura}
+\renewcommand{\cftfigpresnum}{\IFSCfigname ~}
+\newcommand{\IFSCfigsep}{ - }
+\renewcommand{\cftfigaftersnum}{\IFSCfigsep}
+\renewcommand{\cftfignumwidth}{2.5cm}
+\renewcommand{\cftfigleader}{\cftdotfill{\cftdotsep}}
+
+
+
+%%%% Tables
+\cftsetindents{table}{0.cm}{0.cm}
+
+%% Adding the word Figure before chapter.
+\renewcommand{\cfttabfont}{\normalfont}
+\renewcommand{\cfttabpagefont}{\normalfont}
+\newcommand{\IFSCtabname}{\bf Tabela}
+\renewcommand{\cfttabpresnum}{\IFSCtabname ~}
+\newcommand{\IFSCtabsep}{ - }
+\renewcommand{\cfttabaftersnum}{\IFSCtabsep}
+\renewcommand{\cfttabnumwidth}{2.5cm}
+\renewcommand{\cfttableader}{\cftdotfill{\cftdotsep}}
+
+
+
+
+%%%%%%%%%          ENVIRONMENTS           %%%%%%%%%%
 
 
 \newcommand{\chaptertype}{}%
