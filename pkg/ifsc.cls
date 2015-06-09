@@ -64,11 +64,23 @@
 \newcommand{\ABNTchapterfont}{\MainFont\slshape}
 
 
+%% Page Styles
+\newcommand{\chaptertitlepagestyle}{plain}
+
+
+
+% Using links in the TOC if hyperref is loaded
+\newboolean{ABNThypertoc}
+\AtBeginDocument{
+\espaco{\ABNTespacodefault}
+\@ifpackageloaded{hyperref}
+                 {\setboolean{ABNThypertoc}{true}}
+                 {\setboolean{ABNThypertoc}{false}}
+}
 
 
 
 %%%%%%%%%%     COMMAND DEFINITIONS    %%%%%%%%%%%%
-
 
 
 %% Espacos
@@ -91,6 +103,7 @@
 
 % Opcao pra mudar o espacamento geral 
 \newcommand*{\ABNTespacodefault}{} %
+
 
 
 

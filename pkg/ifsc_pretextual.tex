@@ -1,3 +1,30 @@
+%%%%%%%% COMMAND AND ENVIRONMENTS DEFINITIONS %%%%%%%%%%
+
+\newcommand\pretextualchapter%
+    {%
+     \if@openright\cleardoublepage\else\clearpage\fi%
+     \thispagestyle{\chaptertitlepagestyle}
+     \global\@topnum\z@%
+     \@afterindentfalse%
+     \@schapter%
+    }%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%% CAPA %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \providecommand{\ABNTinstituicaodata}{}
 \newcommand{\instituicao}[1]{\renewcommand{\ABNTinstituicaodata}{#1}}
 \newcommand{\instituicaoformat}{\scshape}
@@ -169,3 +196,30 @@
 \end{center}
 \end{titlepage}
 }% end of \folhaderosto
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%% AGRADECIMENTOS %%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newenvironment{agradecimentos}
+{
+  \chapter*{\ABNTagradecimentostitulo}
+
+  \sffamily\upshape
+}
+{
+}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%% RESUMO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newenvironment{resumo}
+  {
+  }
+  {}
