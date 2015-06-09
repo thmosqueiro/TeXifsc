@@ -10,10 +10,9 @@
 
 %%%%%%%%%%%%%      PREAMBLES               %%%%%%%%%%%%
 
-\NeedsTeXFormat{LaTeX2e}%
-\input{cvs-id.def}
-\CVSExtract$Id: abnt.cls,v 1.27.2.1 2004/11/02 15:04:29 gweber Exp $
-\CVSClass{ifsc}
+\ProvidesClass{ifsc}[2015/06/01 version 2.0 IFSC LaTeX Class]
+\NeedsTeXFormat{LaTeX2e}
+
 
 
 
@@ -22,35 +21,78 @@
 
 \RequirePackage{ifthen}    % conditions in LaTeX
 \RequirePackage{calc}      % standard package for length and number easy calculations
-\RequirePackage{toclof}    % managing table of contents
-\RequirePackage{setspace}
-\RequirePackage{geometry}  % to fix margins, paper size, etc
-\RequirePackage{fancyhdr}  % managing the header
+\RequirePackage[
+  paper=a4paper, twoside,
+  top=3cm, left=3cm, right=2cm, bottom=2cm
+]{geometry}  % to fix margins, paper size, etc
 
+
+\RequirePackage{tocloft}    % managing table of contents
+\RequirePackage{setspace}
+\RequirePackage{fancyhdr}  % managing the header
 \RequirePackage[latin1]{inputenc}  % Acentos em portugues
 \RequirePackage[T1]{fontenc}
-\RequirePackage[brazil]{babel}
+\RequirePackage[portuges]{babel}
 
 \RequirePackage{amsmath}   % AMS math environments for LaTeX
 \RequirePackage{amssymb}
 \RequirePackage{amsbsy}
 
-
 \RequirePackage[usenames,dvipsnames]{pstricks}
-\RequirePackage[format=hang,labelfont=bf,labelsep=endash,small]{caption}
 \RequirePackage{epsfig}
 
-% Citation
-\RequirePackage[numbers, comma, round, sort&compress]{natbib}
 
-% Additional stuff
-\RequirePackage{ifsc}
+% Citation
+%\RequirePackage[numbers, comma, round, sort&compress]{natbib}
+
 
 % Less important packages
-\IfFileExists{dsfont.sty}{\RequirePackage{dsfont}}{} % double stroke fonts (as IR, IN, etc)
+%\IfFileExists{dsfont.sty}{\RequirePackage{dsfont}}{} % double stroke fonts (as IR, IN, etc)
 
 
-  
+
+
+%%%%%%%%%%%%%      DEFINITIONS       %%%%%%%%%%%%
+
+
+%% Fonts
+\renewcommand{\familydefault}{\sfdefault}
+\newcommand{\MainFont}{\bfseries}
+
+
+\newcommand{\ABNTsectionfont}{\MainFont}
+\newcommand{\ABNTchapterfont}{\MainFont\slshape}
+
+
+
+
+
+%%%%%%%%%%     COMMAND DEFINITIONS    %%%%%%%%%%%%
+
+
+
+%% Espacos
+
+% Definindo alguns espacamentos
+\newcommand*{\taxaespacosimples}{1.}
+\newcommand*{\taxaespacoumemeio}{1.35}
+\newcommand*{\taxaespacoduplo}{1.7}
+
+
+
+% Ambientes para alterar o espacamento local
+\newenvironment{espacosimples}
+  {\begin{spacing}{\taxaespacosimples}}{\end{spacing}}
+\newenvironment{espacoumemeio}
+  {\begin{spacing}{\taxaespacoumemeio}}{\end{spacing}}
+\newenvironment{espacoduplo}
+  {\begin{spacing}{\taxaespacoduplo}}{\end{spacing}}
+
+
+% Opcao pra mudar o espacamento geral 
+\newcommand*{\ABNTespacodefault}{} %
+
+
 
 %%%%%%%%%%%%%      NAME DEFINITIONS       %%%%%%%%%%%%
 
@@ -70,41 +112,39 @@
 
 
 
+\LoadClass[12pt]{report}
 
-%%%%%%%%%%%%%      DEFINITIONS       %%%%%%%%%%%%
+
+\RequirePackage{ifsc}
+
+
+
+%%%%%%%%%%%%%       HEADER           %%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%       Environments           %%%%%%%%%%%%
+
+
+\input ifsc_pretextual.tex
+
 
 % References level
 \numberwithin{equation}{section}
 \numberwithin{figure}{chapter}
 \numberwithin{table}{chapter}
-
-% Footnotes --- depracated?
-\addtolength{\footskip}{0.5cm}
-\setlength{\footnotemargin}{0.3cm}
-\setlength{\footnotesep}{0.4cm}
-
-
-
-%%%%%%%%%%%%%      OPTION DECLARATION      %%%%%%%%%%%%
-
-% Estilo do titulo
-\newcommand{\estilotitulo}{0}
-\DeclareOption{tituloesquerda}{ \renewcommand{\estilotitulo}{0} }
-\DeclareOption{titulodireita}{  \renewcommand{\estilotitulo}{1} }
-\DeclareOption{tituloclassico}{ \renewcommand{\estilotitulo}{2} }
-
-%%%%%%%%%%%%% LOADING A BASE CLASS    %%%%%%%%%%%%
-
-\LoadClass{report}
-
-% Fixing geometry
-\geometry{
-  paper=a4paper, twoside,
-  top=3cm, left=3cm, right=2cm, bottom=2cm}
-
-% Setting Sans as default font face
-\renewcommand{\familydefault}{\sfdefault}
-
-
-
-%%%%%%%%%%%%%       HEADER           %%%%%%%%%%%%

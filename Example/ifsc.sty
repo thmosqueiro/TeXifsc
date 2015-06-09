@@ -2,17 +2,26 @@
 %  This package carries additional definitions for IFSC class
 %
 
+
+
+\newcommand{\espaco}[1]%
+{\ifthenelse{\equal{#1}{simples}}% se espacamentos simples
+  {\setstretch{\taxaespacosimples}} % entao
+  { %senao (espaco simples)
+   \ifthenelse{\equal{#1}{umemeio}}% se espaco 1 1/2
+     {\setstretch{\taxaespacoumemeio}} % entao
+     {%senao (espaco 1 1/2)
+      \ifthenelse{\equal{#1}{duplo}}% se espaco duplo
+        {\setstretch{\taxaespacoduplo}}% entao
+        {\setstretch{#1}} % senao espaco dado
+     } %fim se espaco 1 1/2
+  } %fim se espaco simples
+}%fim newcommand
+
+
+
+
 %%%%%%%%%%%%% AUXILIARY ENVIROMENTS  %%%%%%%%%%%%
-
-
-\renewenvironment{resumo}
-{
-	\vspace{1cm}
-	\setlength{\parindent}{0cm}
-}
-{
-	
-}
 
 
 \newenvironment{palavraschave}
