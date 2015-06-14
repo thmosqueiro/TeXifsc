@@ -56,7 +56,7 @@
 
 
 \newcommand{\ABNTsectionfont}{\MainFont}
-\newcommand{\ABNTchapterfont}{\MainFont\slshape}
+\newcommand{\ABNTchapterfont}{\MainFont}
 
 
 %% Page Styles
