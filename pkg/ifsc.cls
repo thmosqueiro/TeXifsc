@@ -159,13 +159,13 @@
 \setcounter{secnumdepth}{2}
 
 %% Setting indents
-\cftsetindents{section}{0.cm}{0.9cm}
-\cftsetindents{subsection}{0.cm}{0.9cm}
-\cftsetindents{subsubsection}{0.cm}{0.9cm}
+\cftsetindents{section}{0.cm}{0.8cm}
+\cftsetindents{subsection}{0.cm}{1.2cm}
 
 %% Item separation
 \renewcommand\cftchapafterpnum{\vskip7pt}
 \renewcommand\cftsecafterpnum{\vskip7pt}
+\renewcommand\cftsubsecafterpnum{\vskip7pt}
 
 %% All fonts
 \renewcommand{\cftchapfont}{\large\normalfont}
