@@ -135,9 +135,12 @@
 \geometry{paper=a4paper, twoside, top=3cm, left=3cm, right=2cm, bottom=2cm}
 \RequirePackage{ifsc}
 
-\RequirePackage[labelfont=bf, format=hang]{caption}
+\RequirePackage[
+  justification=raggedright,
+  singlelinecheck=false,
+  labelfont=bf,
+  format=hang]{caption}
 \RequirePackage{subcaption}
-
 
 
 %%%%%%%%%%%%%       HEADER           %%%%%%%%%%%%
