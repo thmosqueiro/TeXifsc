@@ -3,7 +3,7 @@
 \newcommand\pretextualchapter%
     {%
      \if@openright\cleardoublepage\else\clearpage\fi%
-     \thispagestyle{\chaptertitlepagestyle}
+     \thispagestyle{plain}
      \global\@topnum\z@%
      \@afterindentfalse%
      \@schapter%
@@ -126,7 +126,7 @@
 {%
 \begin{titlepage}
 \phantom{bu}\newpage
-\setcounter{page}{0}
+\setcounter{page}{1}
 \espaco{1.1}
 \ABNTifnotempty{\ABNTautordata}%
   {%
