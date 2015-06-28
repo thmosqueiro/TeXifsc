@@ -23,6 +23,7 @@
 \RequirePackage{calc}      % standard package for length and number easy calculations
 \RequirePackage[paper=a4paper]{geometry}  % to fix margins, paper size, etc
 \RequirePackage{setspace}
+
 \RequirePackage{fancyhdr}  % managing the header
 \RequirePackage[latin1]{inputenc}  % Acentos em portugues
 \RequirePackage[T1]{fontenc}
@@ -146,8 +147,33 @@
 %%%%%%%%%%%%%       HEADER           %%%%%%%%%%%%
 
 
+\pagestyle{fancy}
+\newcommand{\hdrfootCLEAN}{
+  \lhead{}
+  \chead{}
+  \rhead{}
+  \lfoot{}
+  \cfoot{}
+  \rfoot{}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+\hdrfootCLEAN
 
 
+%% Chapter pages
+\fancypagestyle{plain}{%
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{} % except the center
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}}
+
+\newcommand{\hdrfootTEXTUAL}{
+  \fancyhead[LE,RO]{\thepage}
+  \fancyhead[RE,LO]{\chaptername~ \thechapter~}
+  \renewcommand{\headrulewidth}{0.4pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
 
 
 %%%%%%%%%    SETTING TOCLOFT VARIABLES      %%%%%%%%%
@@ -225,24 +251,24 @@
 
 \newcommand{\chaptertype}{}%
 \renewcommand\chapter%
-    {%
-      \cleardoublepage
-      \thispagestyle{\chaptertitlepagestyle}
-      \ifthenelse{\boolean{ABNTinpretext}}%
-       {%
+  {%
+    \clearpage{\pagestyle{empty}\cleardoublepage}  % avoid header in blank pages
+    \thispagestyle{\chaptertitlepagestyle}
+    \ifthenelse{\boolean{ABNTinpretext}}%
+      {%
         \ifthenelse{\boolean{ABNTaftertoc}}%
           {% change to textual part
-           \setboolean{ABNTinpretext}{false}%
-           \ABNTBeginOfTextualPart%
+            \setboolean{ABNTinpretext}{false}%
+            \ABNTBeginOfTextualPart%
           }%
           {}%
-       }% 
-       {}%
-     \global\@topnum\z@%
-     \@afterindentfalse%
-%     \ABNTsecdef\@chapter\@schapter%
-    \secdef\@chapter\@schapter%
-    }
+      }% 
+      {}%
+      \global\@topnum\z@%
+      \@afterindentfalse%
+      %\ABNTsecdef\@chapter\@schapter%
+      \secdef\@chapter\@schapter%
+  }
 
 
 
