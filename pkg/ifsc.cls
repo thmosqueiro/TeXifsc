@@ -22,7 +22,6 @@
 \RequirePackage{ifthen}    % conditions in LaTeX
 \RequirePackage{calc}      % standard package for length and number easy calculations
 \RequirePackage[paper=a4paper]{geometry}  % to fix margins, paper size, etc
-
 \RequirePackage{setspace}
 \RequirePackage{fancyhdr}  % managing the header
 \RequirePackage[latin1]{inputenc}  % Acentos em portugues
@@ -137,6 +136,7 @@
 \RequirePackage{ifsc}
 
 \RequirePackage[labelfont=bf, format=hang]{caption}
+\RequirePackage{subcaption}
 
 
 
@@ -148,7 +148,6 @@
 
 
 %%%%%%%%%    SETTING TOCLOFT VARIABLES      %%%%%%%%%
-
 
 \RequirePackage{tocloft}    % managing table of contents
 
